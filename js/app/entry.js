@@ -42,7 +42,19 @@ var EntryBox = React.createClass({
 var AlertBox = React.createClass({
     render: function() {
         return (
-            <div className="alert alert-success" role="alert">{ this.props.message }</div>
+            <div id="notify-panel" className="row">
+                <div className="col-md-6">
+                    <div className="alert alert-success alert-dismissable" role="alert">
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        { this.props.message }
+                    </div>
+                </div>
+            </div>
         )
+
+        var delay = 3000;
+        setTimeout(function(){
+            $('#notify-panel').alert('close');
+        }, delay);
     }
 });

@@ -1,3 +1,13 @@
+var dayOfWeek = Array();
+
+dayOfWeek[0] = 'Sun';
+dayOfWeek[1] = 'Mon';
+dayOfWeek[2] = 'Tue';
+dayOfWeek[3] = 'Wed';
+dayOfWeek[4] = 'Thu';
+dayOfWeek[5] = 'Fri';
+dayOfWeek[6] = 'Sat';
+
 var RecordsInbox = React.createClass({
     loadRecords: function() {
         parseRecords = Parse.Object.extend("Record");
@@ -12,10 +22,17 @@ var RecordsInbox = React.createClass({
                 var count = records.length;
                 for(var i=0; i < count; i++) {
                     r = records[i];
-                    var createdDate = r.createdAt.getDay() + '/' + r.createdAt.getMonth() + '/' + r.createdAt.getYear() + ' ' + r.createdAt.getHours() + ':' + r.createdAt.getMinutes();
+                    console.log(r);
+
+                    var createdDate = dayOfWeek[r.createdAt.getDay()] + ', ' + r.createdAt.toLocaleDateString();
+                    var createdTime = r.createdAt.toLocaleTimeString();
+
+                    console.log(createdDate);
+                    console.log(createdTime);
 
                     recs.push( {
-                        created  : createdDate,
+                        createdDate : createdDate,
+                        createdTime : createdTime,
                         sistolic : r.get("systolic"),
                         diastolic: r.get("diastolic"),
                         heartrate: r.get("heartrate"),
@@ -77,7 +94,7 @@ var RecordsInbox = React.createClass({
             <section>
                 <div className="panel panel-default">
                     <div className="panel-heading">
-                        <h3 className="panel-title">New Record</h3>
+                        <h3 className="panel-title"><span className="glyphicon glyphicon-pencil"></span> New Record</h3>
                     </div>
                     <div className="panel-body">
                         <EntryBox onEntrySubmit={this.handleEntrySubmit} />
@@ -86,7 +103,7 @@ var RecordsInbox = React.createClass({
 
                 <div className="panel panel-success">
                     <div className="panel-heading">
-                        <h3 className="panel-title">Last 6 Records</h3>
+                        <h3 className="panel-title"><span className="glyphicon glyphicon-scale"></span> Last 6 Records</h3>
                     </div>
                     <RecordsList data={this.state.bpData} />
                 </div>
@@ -100,9 +117,10 @@ var RecordLine = React.createClass({
     render: function() {
         return(
             <tr>
-                <td>{ this.props.data.created }</td>
-                <td>{ this.props.data.sistolic }/{ this.props.data.diastolic }</td>
-                <td>{ this.props.data.heartrate }</td>
+                <td><span className="bp-readout">{ this.props.data.sistolic }/{ this.props.data.diastolic }</span></td>
+                <td><span className="bp-readout">{ this.props.data.heartrate }</span></td>
+                <td>{ this.props.data.createdDate }</td>
+                <td>{ this.props.data.createdTime }</td>
             </tr>
         )
     }
@@ -117,12 +135,13 @@ var RecordsList = React.createClass({
         });
 
         return(
-            <table className="table table-bordered">
+            <table id="bp-records" className="table table-bordered">
             <thead>
                 <tr>
-                    <th>Date</th>
                     <th>BP</th>
                     <th>HR</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>

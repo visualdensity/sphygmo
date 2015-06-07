@@ -1,7 +1,23 @@
 body {
-  padding-top: 50px;
 }
+
+#main-header {
+    background-color: #eee;
+    padding: 1em;
+}
+    #main-header h1 {
+        margin-top: 0;
+    }
 
 #mainframe {
   padding: 40px 15px;
+}
+
+#bp-records th {
+    color: #333;
+    background-color: #eee;
+}
+
+.bp-readout {
+    font-weight: bold;
 }
