@@ -12,7 +12,7 @@ var RecordsInbox = React.createClass({
     loadRecords: function() {
         parseRecords = Parse.Object.extend("Record");
         query = new Parse.Query(parseRecords);
-        query.equalTo('User', me);
+        query.equalTo('User', Parse.User.current());
         query.descending('createdAt');
         query.limit(6);
 
@@ -56,9 +56,9 @@ var RecordsInbox = React.createClass({
         rec.set('systolic' , parseInt(entry.systolic)  );
         rec.set('diastolic', parseInt(entry.diastolic) );
         rec.set('heartrate', parseInt(entry.heartrate) );
-        rec.set('User'     , me );
+        rec.set('User'     , Parse.User.current());
 
-        rec.setACL(new Parse.ACL(me));
+        rec.setACL(new Parse.ACL(Parse.User.current()));
 
         rec.save(
             null,
