@@ -25,3 +25,7 @@ body {
 .bp-readout {
     font-weight: bold;
 }
+
+#logout-btn {
+    margin-left: 15px;
+}
