@@ -1,4 +1,4 @@
-Parse.initialize('SwYjBCwiMnbmFBc6v55sFPiLq5zo5Z5hUnLqI5ok', '64Rfy4R4XsKxa2xpWphWAKz3tK70NBxaqUlv0XYi');
+Parse.initialize('YOUR_PARSE_APP_KEY', 'YOUR_PARSE_JAVASCRIPT_KEY');
 
 if( Parse.User.current() == null ) {
     console.log('user does not exist');
