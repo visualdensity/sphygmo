@@ -22,13 +22,9 @@ var RecordsInbox = React.createClass({
                 var count = records.length;
                 for(var i=0; i < count; i++) {
                     r = records[i];
-                    console.log(r);
 
                     var createdDate = dayOfWeek[r.createdAt.getDay()] + ', ' + r.createdAt.toLocaleDateString();
                     var createdTime = r.createdAt.toLocaleTimeString();
-
-                    console.log(createdDate);
-                    console.log(createdTime);
 
                     recs.push( {
                         createdDate : createdDate,
@@ -94,7 +90,7 @@ var RecordsInbox = React.createClass({
             <section>
                 <div className="panel panel-default">
                     <div className="panel-heading">
-                        <h3 className="panel-title"><span className="glyphicon glyphicon-pencil"></span> New Record</h3>
+                        <h3 className="panel-title"><span className="glyphicon glyphicon-pencil"></span> New Record: {Parse.User.current().get('username')}</h3>
                     </div>
                     <div className="panel-body">
                         <EntryBox onEntrySubmit={this.handleEntrySubmit} />
@@ -135,7 +131,7 @@ var RecordsList = React.createClass({
         });
 
         return(
-            <table id="bp-records" className="table table-bordered">
+            <table id="bp-records" className="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th>BP</th>

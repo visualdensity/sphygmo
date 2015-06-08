@@ -10,7 +10,11 @@ body {
     }
 
 #mainframe {
-  padding: 40px 15px;
+  padding: 20px 5px;
+}
+
+#login-panel section {
+    margin-top: 2em;
 }
 
 #bp-records th {
