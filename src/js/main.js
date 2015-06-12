@@ -1,8 +1,11 @@
-var LoginPanel = require('./components/LoginPanel.react.js');
+/**
+ * @jsx React.DOM
+ */
+var React        = require('react');
+var LoginPanel   = require('./components/LoginPanel.react.js');
 var RecordsInbox = require('./components/RecordsTable.react.js');
-var React = require('react');
 
-Parse.initialize('PARSE_APPLICATION_KEY', 'PARSE_JAVASCRIPT_KEY');
+ Parse.initialize('CkdfhIeT92hRseDrVVCYXvbrV7OksKhJ7Cr9lhm9', 'EEBRKfn3LqXfmXw74Kd9oGnuTwD9z4tDo1iTzML2');
 
 if( Parse.User.current() == null ) {
     console.log('user does not exist');
