@@ -1,16 +1,14 @@
+var del        = require('del');
 var gulp       = require('gulp');
-var clean      = require('gulp-clean');
 var concat     = require('gulp-concat');
 var browserify = require('gulp-browserify');
 
 gulp.task('clean', function(cb) {
-    return gulp.src('www')
-        .pipe( clean() );
-
+    return del('www');
     cb();
 });
 
-gulp.task('publish', ['clean'], function() {
+gulp.task('publish', function() {
     gulp.src('src/js/main.js')
         .pipe( browserify({transform:'reactify'}) )
         .pipe( concat('main.js') )

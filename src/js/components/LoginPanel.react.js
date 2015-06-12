@@ -13,13 +13,15 @@ var LoginPanel = React.createClass({
         $('#login-btn').attr('disabled', 'disabled');
 
         /**
-         * If using React > 0.13, use this:
+         * If using React < 0.13, use this:
          * --
-         * var username = React.findDOMNode(this.refs.username).value.trim();
-         * var password = React.findDOMNode(this.refs.password).value.trim();
+         * var username = this.refs.username.getDOMNode().value.trim();
+         * var password = this.refs.password.getDOMNode().value.trim();
          */
-        var username = this.refs.username.getDOMNode().value.trim();
-        var password = this.refs.password.getDOMNode().value.trim();
+        var username = React.findDOMNode(this.refs.username).value.trim();
+        var password = React.findDOMNode(this.refs.password).value.trim();
+
+        console.log('Name: ' + username + ' Pass: ' + password );
 
         Parse.User.logIn(username, password, {
             success: function(user) {
