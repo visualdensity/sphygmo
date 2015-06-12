@@ -2,9 +2,9 @@
   "name": "Sphygmo",
   "version": "0.0.0",
   "description": "A minimalist blood pressure tracker",
-  "author": "Wee Keat",
-  "repository": "",
-  "readme": "",
+  "author": "Visualdensity",
+  "repository": "https://github.com/visualdensity/sphygmo",
+  "readme": "https://github.com/visualdensity/sphygmo/blob/master/README.md",
   "license": "Apache 2",
   "devDependencies": {
     "es6-promise": "^1.0.0",
