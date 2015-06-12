@@ -1,3 +1,9 @@
+/**
+ * @providersModule EntryBox
+ * @jsx React.DOM
+ */
+var React = require('react');
+
 var EntryBox = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
@@ -39,3 +45,4 @@ var EntryBox = React.createClass({
     }
 });
 
+module.exports = EntryBox;

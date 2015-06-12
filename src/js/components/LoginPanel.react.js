@@ -1,3 +1,10 @@
+/**
+ * @providersModule LoginPanel
+ * @jsx React.DOM
+ */
+var React = require('react');
+var RecordsInbox = require('./RecordsTable.react.js');
+
 var LoginPanel = React.createClass({
     handleLogin: function(e) {
         e.preventDefault();
@@ -7,6 +14,7 @@ var LoginPanel = React.createClass({
 
         var username = React.findDOMNode(this.refs.username).value.trim();
         var password = React.findDOMNode(this.refs.password).value.trim();
+        console.log(username + ':' + password);
 
         Parse.User.logIn(username, password, {
             success: function(user) {
@@ -50,3 +58,5 @@ var LoginPanel = React.createClass({
         )
     }
 });
+
+module.exports = LoginPanel;

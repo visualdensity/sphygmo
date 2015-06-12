@@ -1,33 +1,19 @@
-Parse.initialize('YOUR_PARSE_APP_KEY', 'YOUR_PARSE_JAVASCRIPT_KEY');
+var LoginPanel = require('./components/LoginPanel.react.js');
+var React = require('react');
 
-if( Parse.User.current() == null ) {
-    console.log('user does not exist');
+var dayOfWeek = Array();
 
-    React.render(
-        <LoginPanel />,
-        document.getElementById('login-panel')
-    );
+dayOfWeek[0] = 'Sun';
+dayOfWeek[1] = 'Mon';
+dayOfWeek[2] = 'Tue';
+dayOfWeek[3] = 'Wed';
+dayOfWeek[4] = 'Thu';
+dayOfWeek[5] = 'Fri';
+dayOfWeek[6] = 'Sat';
 
-} else {
-    console.log('user exists');
-    console.log(Parse.User.current());
+Parse.initialize('OtTy8RwvIyfGsNQ00ucApRWMc2Wl3Uh4pUT98ODq', 'oKs3n3P0P1pLTbQukkdsTQBhgW3U038YAzcZlfyT');
 
-    React.render(
-        <RecordsInbox />,
-        document.getElementById('records')
-    );
-}
-
-$(function() {
-
-    $('#logout-btn').click(function() {
-        Parse.User.logOut().then(function(results) {
-            console.log('Logged out');
-            location.reload();
-        }, function(err) {
-            console.log('Errord');
-            console.log(err);
-        });
-    });//logout button
-
-});
+React.render(
+    <LoginPanel />,
+    document.getElementById('login-panel')
+);

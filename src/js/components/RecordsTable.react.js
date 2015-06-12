@@ -1,12 +1,9 @@
-var dayOfWeek = Array();
-
-dayOfWeek[0] = 'Sun';
-dayOfWeek[1] = 'Mon';
-dayOfWeek[2] = 'Tue';
-dayOfWeek[3] = 'Wed';
-dayOfWeek[4] = 'Thu';
-dayOfWeek[5] = 'Fri';
-dayOfWeek[6] = 'Sat';
+/**
+ * @providesModule RecordsInbox
+ * @jsx React.DOM
+ */
+var React = require('react');
+var EntryBox = require('./EntryForm.react.js');
 
 var RecordsInbox = React.createClass({
     loadRecords: function() {
@@ -148,3 +145,5 @@ var RecordsList = React.createClass({
         )
     }
 });
+
+module.exports = RecordsInbox;
