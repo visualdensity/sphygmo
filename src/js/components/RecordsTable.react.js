@@ -4,6 +4,7 @@
  */
 var React = require('react');
 var EntryBox = require('./EntryForm.react.js');
+var AlertBox = require('./AlertBox.react.js');
 
 var RecordsInbox = React.createClass({
     loadRecords: function() {

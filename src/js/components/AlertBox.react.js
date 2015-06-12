@@ -1,3 +1,9 @@
+/**
+ * @providersModule AlertBox
+ * @jsx React.DOM
+ */
+var React = require('react');
+
 var AlertBox = React.createClass({
     render: function() {
         return (
@@ -12,3 +18,5 @@ var AlertBox = React.createClass({
         )
     }
 });
+
+module.exports = AlertBox;
