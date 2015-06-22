@@ -35,4 +35,6 @@ gulp.task('watch', function() {
     gulp.watch('src/**/*.*', ['publish']);
 });
 
-gulp.task('default', ['watch'] );
+gulp.task('build', ['clean','publish']);
+
+gulp.task('default', ['build'] );
